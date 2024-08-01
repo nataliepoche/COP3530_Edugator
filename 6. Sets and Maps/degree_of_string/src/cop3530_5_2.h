@@ -16,10 +16,46 @@
 */
 
 #include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <limits>
 #include <string>
+using namespace std;
 
 int degreeOfString(std::string str)
 {
-	// your code here
-	return 0;
+    // your code here
+
+    if(str.empty()) return 0; // checks for empty string
+
+    unordered_map<char, int> frequency;
+    unordered_map<char, int> firstOccurrence;
+    unordered_map<char, int> lastOccurence;
+
+    int maxFrequency = 0;
+
+    // 1. Calculate frequency and first and last occurrences
+    for(int i = 0; i < str.length(); i++){
+        char c = str[i];
+        frequency[c]++;
+        maxFrequency = max(maxFrequency, frequency[c]);
+
+        if(firstOccurrence.find(c) == firstOccurrence.end()){
+            firstOccurrence[c] = i;
+        }
+
+        lastOccurence[c] = i;
+    }
+
+    // 2. Find the min length of contiguous substring with same degree
+    int minLength = numeric_limits<int>::max();
+    for(const auto& entry : frequency){
+        char c = entry.first;
+        if(entry.second == maxFrequency){
+            int length = lastOccurence[c] - firstOccurrence[c] + 1;
+            minLength = min(minLength, length);
+        }
+    }
+
+    return minLength;
 }
