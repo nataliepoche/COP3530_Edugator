@@ -15,8 +15,24 @@
 
 #include <iostream>
 #include <string>
+using namespace std;
 
 int suffixCount(std::string S, int L) {
-    // Your code here
-    return 0;
+    // Length(S) >=0 L > 0
+    if(S.length() < L || L < 0){ // excludes if S is less than L or if L is less than 0
+        return 0;
+    }
+
+    // Extract suffix from S based on L
+    string suffix = S.substr(S.length() - L); // removes the characters not in suffix
+
+    // Count suffix occurrences in S
+    int count = 0; // keeps track of count
+    for(int i = 0; i < S.length(); i++){ // goes through each position in S
+        // checks the sectioned string starting with character in position i
+        if(S.substr(i, L) == suffix){
+            count++; // adds to count if suffix is same
+        }
+    }
+    return count; // returns the count
 }
