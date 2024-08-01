@@ -1,61 +1,45 @@
-/*
-	Degree of a String
-
-	Given a string `str`, the degree of this string is defined 
-	as the maximum frequency of any one of its characters.
-
-	Your task is to find the minimum length of a contiguous 
-	substring of `str`, that has the same degree as `str`.
-
-	Sample Test Case
-
-	Input: str = “fl1pthat”
-	Output: 4
-	Explanation: The maximum frequency is 2, and the smallest contiguous 
-	substring that has frequency 2 is “that” which has length 4.
-*/
-
 #include <iostream>
-#include <unordered_map>
-#include <vector>
-#include <limits>
 #include <string>
+#include <vector>
+#include <set>
 using namespace std;
 
-int degreeOfString(std::string str)
+// Function to convert string to int
+int string_to_int(const string &str){
+    int num = 0;
+    for(char c : str){
+        num = num * 10 + (c - '0');
+    }
+
+    return num;
+}
+
+// Backtrack to generate permutations
+void generatePermutations(const string &digits, string current, vector<bool> &used, set<int> &results){
+    if(current.length() == 4){
+        if(current[0] != '0' && (current[3] - '0') % 2 != 0){
+            results.insert(string_to_int(current));
+        }
+        return;
+    }
+
+    for(int i = 0; i < digits.length(); i++){
+        if(!used[i]){
+            used[i] = true;
+            generatePermutations(digits, current + digits[i], used, results);
+            used[i] = false;
+        }
+    }
+}
+
+// function to find unique integers
+std::vector<int> fourDigitNumbers(std::string &str)
 {
-    // your code here
+    //code here :)
 
-    if(str.empty()) return 0; // checks for empty string
+    set<int> results;
+    vector<bool> used(str.length(), false);
+    generatePermutations(str, "", used, results);
 
-    unordered_map<char, int> frequency;
-    unordered_map<char, int> firstOccurrence;
-    unordered_map<char, int> lastOccurence;
-
-    int maxFrequency = 0;
-
-    // 1. Calculate frequency and first and last occurrences
-    for(int i = 0; i < str.length(); i++){
-        char c = str[i];
-        frequency[c]++;
-        maxFrequency = max(maxFrequency, frequency[c]);
-
-        if(firstOccurrence.find(c) == firstOccurrence.end()){
-            firstOccurrence[c] = i;
-        }
-
-        lastOccurence[c] = i;
-    }
-
-    // 2. Find the min length of contiguous substring with same degree
-    int minLength = numeric_limits<int>::max();
-    for(const auto& entry : frequency){
-        char c = entry.first;
-        if(entry.second == maxFrequency){
-            int length = lastOccurence[c] - firstOccurrence[c] + 1;
-            minLength = min(minLength, length);
-        }
-    }
-
-    return minLength;
+    return vector<int>(results.begin(), results.end());
 }
