@@ -1,0 +1,3 @@
+C:/Users/Owner/CLionProjects/COP3530_Edugator/3. Lists Stacks and Queue/interquartile_range/cmake-build-debug/CMakeFiles/interquartile_range.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/3. Lists Stacks and Queue/interquartile_range/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/3. Lists Stacks and Queue/interquartile_range/cmake-build-debug/CMakeFiles/rebuild_cache.dir

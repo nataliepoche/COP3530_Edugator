@@ -1,0 +1,3 @@
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/find_digits/cmake-build-debug/CMakeFiles/find_digits.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/find_digits/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/find_digits/cmake-build-debug/CMakeFiles/rebuild_cache.dir

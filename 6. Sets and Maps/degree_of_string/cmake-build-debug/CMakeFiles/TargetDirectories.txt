@@ -1,0 +1,3 @@
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/degree_of_string/cmake-build-debug/CMakeFiles/degree_of_string.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/degree_of_string/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/6. Sets and Maps/degree_of_string/cmake-build-debug/CMakeFiles/rebuild_cache.dir

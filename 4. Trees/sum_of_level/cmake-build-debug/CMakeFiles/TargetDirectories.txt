@@ -1,0 +1,3 @@
+C:/Users/Owner/CLionProjects/COP3530_Edugator/4. Trees/sum_of_level/cmake-build-debug/CMakeFiles/sum_of_level.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/4. Trees/sum_of_level/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Owner/CLionProjects/COP3530_Edugator/4. Trees/sum_of_level/cmake-build-debug/CMakeFiles/rebuild_cache.dir
