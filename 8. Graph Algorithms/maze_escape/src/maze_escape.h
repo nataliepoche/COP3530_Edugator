@@ -30,8 +30,55 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <utility>
+
+using namespace std;
 
 int traverse(std::vector<std::string> &graph) 
 {
+    int rows = graph.size();
+    int cols = graph[0].size();
+
+    vector<vector<bool>>visited (rows, vector<bool>(cols, false));
+    queue<pair<pair<int, int>, int>> q; // ((row, col), distance)
+
+    // Initialize BFS
+    q.push({{0, 0}, 0});
+    visited[0][0] = true;
+
+    // Directions array to explore 4 adjacent positions (up, down, left, right)
+    int directions[4][2] = {{-1, 0},
+                            {1, 0},
+                            {0, -1},
+                            {0, 1}};
+
+    while(!q.empty()){
+        auto current = q.front();
+        q.pop();
+
+        int row = current.first.first;
+        int col = current.first.second;
+        int distance = current.second;
+
+        // Check if target 't' is reached
+        if(graph[row][col] == 't'){
+            return distance;
+        }
+
+        // Explore adjacent positions
+        for(int i = 0; i < 4; i++){
+            int newRow = row + directions[i][0];
+            int newCol = col + directions[i][1];
+
+            // check if new position is within bounds and not visited or blocked
+            if(newRow >= 0 && newRow < rows && newCol >=0 && newCol < cols && !visited[newRow][newCol] && graph[newRow][newCol] != '#'){
+                visited[newRow][newCol] = true;
+                q.push({{newRow, newCol}, distance + 1});
+            }
+        }
+
+    }
+
 	return -1;
 }
